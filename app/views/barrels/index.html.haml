@@ -10,6 +10,9 @@
 = link_to new_barrel_path, class: 'btn btn-success' do
   = fa_icon :plus
   = t('buttons.new.barrel')
+  = link_to search_barrels_path, {class: 'btn btn-primary'} do
+    = fa_icon 'search'
+    = t('buttons.search.barrel')
 
 
 .row

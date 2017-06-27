@@ -22,7 +22,7 @@ ru:
   buttons:
     edit: Редактировать
     destroy: Удалить
-    show: Показать
+    show: Показать 
     confirm:
       user: Действительно удалить пользователя?
       role: Действительно удалить роль?
@@ -33,6 +33,8 @@ ru:
       role: Новая роль
       barrel: Новая бочка
       varietywine: Новый сорт вина
+    search:
+      barrel: Найти бочки
   headers:
     users:
       edit: Редактирование пользователя
@@ -42,6 +44,8 @@ ru:
       new: "Создание бочки"
       edit: "Обновление бочки"
       index: "Список бочек"
+      search: Поиск бочек
+
     varietywines:
       new: Создание сорта
       edit: Обновление сортов
@@ -50,6 +54,15 @@ ru:
       index: Список возможных ролей пользователей
       edit: Редактирование роли
       new: Новая роль
+  forms:
+ 
+   barrel_search:
+      form:
+       barrel: По атрибутам бочек
+       varietywine: По атрибутам вина
+       grapesort: По атрибутам винограда
+       relationship: По атрибутам соотношений
+      found: Найденых бочек
   views:
     pagination:
       first: ⇤
@@ -105,6 +118,8 @@ ru:
         full_info: Описание
       varietywine/relationships/grapesort:
         <<: *grapesorts
+      wine_sort/relationships:
+        <<: *relationships
       varietywine/relationships:
         <<: *relationships
 

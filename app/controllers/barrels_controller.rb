@@ -1,6 +1,16 @@
 class BarrelsController < ApplicationController
   before_action :set_barrel, only: [:show, :edit, :update, :destroy]
+ def search
+    if params.has_key?('search')
+      @barrels = Barrel.search(params['search'])
+    else
+      @barrels = []
+    end
+    params['search'] ||= {}
+    @old_is_empty=params.has_key?('search') ? params[:search][:is_empty] : ""
+    @old_type_of_wine=params.has_key?('search') ? params[:search][:type_of_wine] : ""
 
+end
   # GET /barrels
   # GET /barrels.json
   def index

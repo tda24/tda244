@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :barrels
+  resources :barrels  do
+    collection do
+      get :search
+    end
+  end
   resources :relationships
   resources :varietywines
   resources :grapesorts

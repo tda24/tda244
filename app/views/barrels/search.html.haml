@@ -25,9 +25,9 @@
             %span.glyphicon.glyphicon-calendar
       .col-md-4
         .form-group
-        =Barrel.human_attribute_name(:date_of_completion)
+        =Barrel.human_attribute_name(:date_of_filling)
         .input-group.date.datepicker
-          =text_field_tag 'search[date_of_completion]', params['search']['date_of_completion'],class: 'form-control'
+          =text_field_tag 'search[date_of_filling]', params['search']['date_of_filling'],class: 'form-control'
           %span.input-group-addon
             %span.glyphicon.glyphicon-calendar
 
@@ -43,33 +43,33 @@
           {include_blank: true, class: 'form-control'}
 
 
-    %h3= t('forms.barrel_search.form.wine_sort')
+    %h3= t('forms.barrel_search.form.varietywine')
     .row
       .col-md-4
         .form-group
-        = WineSort.human_attribute_name(:type_of_wine)
-        = select_tag 'search[type_of_wine]',options_for_select((WineSort.all.map{|x| [x.type_of_wine]}.uniq),@old_type_of_wine),
+        = Varietywine.human_attribute_name(:type_of_wine)
+        = select_tag 'search[type_of_wine]',options_for_select((Varietywine.all.map{|x| [x.type_of_wine]}.uniq),@old_type_of_wine),
           {include_blank: true, class: 'form-control'}
 
       .col-md-4
         .form-group
-        = WineSort.human_attribute_name(:name)
+        = Varietywine.human_attribute_name(:name)
         =text_field_tag 'search[wine_name]', params['search']['wine_name'], class: 'form-control'
 
       .col-md-4
         .form-group
-        =WineSort.human_attribute_name(:color)
+        =Varietywine.human_attribute_name(:color)
         =text_field_tag 'search[color]', params['search']['color'], class: 'form-control'
 
       .col-md-4
         .form-group
-        = WineSort.human_attribute_name(:barrel_extract)
-        =text_field_tag 'search[barrel_extract]', params['search']['barrel_extract'], class: 'form-control'
+        = Varietywine.human_attribute_name(:aging_in_barrels)
+        =text_field_tag 'search[aging_in_barrels]', params['search']['aging_in_barrels'], class: 'form-control'
 
       .col-md-4
         .form-group
-        = WineSort.human_attribute_name(:bottle_extract)
-        =text_field_tag 'search[bottle_extract]', params['search']['bottle_extract'], class: 'form-control'
+        = Varietywine.human_attribute_name(:aging_in_bottles)
+        =text_field_tag 'search[aging_in_bottles]', params['search']['aging_in_bottles'], class: 'form-control'
 
 
     %h3= t('forms.barrel_search.form.relationship')
@@ -80,23 +80,23 @@
         =text_field_tag 'search[ratio]', params['search']['ratio'], class: 'form-control'
 
 
-    %h3= t('forms.barrel_search.form.grape_sort')
+    %h3= t('forms.barrel_search.form.grapesort')
     .row
       .col-md-4
         .form-group
-        = GrapeSort.human_attribute_name(:name)
+        = Grapesort.human_attribute_name(:name)
         =text_field_tag 'search[grape_name]', params['search']['grape_name'],
         class: 'form-control'
 
       .col-md-4
         .form-group
-        = GrapeSort.human_attribute_name(:place_of_growth)
-        =text_field_tag 'search[place_of_growth]', params['search']['place_of_growth'],
+        = Grapesort.human_attribute_name(:place_of_production)
+        =text_field_tag 'search[place_of_production]', params['search']['place_of_production'],
         class: 'form-control'
 
       .col-md-4
         .form-group
-        = GrapeSort.human_attribute_name(:date_of_collection)
+        = Grapesort.human_attribute_name(:date_of_collection)
         .input-group.date.datepicker
           =text_field_tag 'search[date_of_collection]', params['search']['date_of_collection'],class: 'form-control'
           %span.input-group-addon
@@ -123,7 +123,7 @@
               %dd= barrel.amount
               %dt= Barrel.human_attribute_name(:is_empty)
               %dd= barrel.is_empty
-              %dt= Barrel.human_attribute_name(:date_of_completion)
-              %dd= (barrel.date_of_completion.nil?) ? (' - ') : (barrel.date_of_completion)
-              %dt= Barrel.human_attribute_name(:wine_sort_id)
-              %dd= (barrel.wine_sort.nil?) ? (' - ') : (barrel.wine_sort.name + ', ' + barrel.wine_sort.type_of_wine)
+              %dt= Barrel.human_attribute_name(:date_of_filling)
+              %dd= (barrel.date_of_filling.nil?) ? (' - ') : (barrel.date_of_filling)
+              %dt= Barrel.human_attribute_name(:varietywine_id)
+              %dd= (barrel.varietywine.nil?) ? (' - ') : (barrel.varietywine.name + ', ' + barrel.varietywine.type_of_wine)
