@@ -1,0 +1,25 @@
+%h1 Listing grapesorts
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Place of production
+      %th Date of collection
+      %th
+      %th
+      %th
+
+  %tbody
+    - @grapesorts.each do |grapesort|
+      %tr
+        %td= grapesort.name
+        %td= grapesort.place_of_production
+        %td= grapesort.date_of_collection
+        %td= link_to 'Show', grapesort
+        %td= link_to 'Edit', edit_grapesort_path(grapesort)
+        %td= link_to 'Destroy', grapesort, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Grapesort', new_grapesort_path

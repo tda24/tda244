@@ -1,0 +1,53 @@
+=breadcrumb_tag do
+  %li.active
+    Бочки
+  %li
+    Данные о бочке
+
+.page-header
+  %h1= t('headers.barrels.index')
+
+= link_to new_barrel_path, class: 'btn btn-success' do
+  = fa_icon :plus
+  = t('buttons.new.barrel')
+
+
+.row
+  .col-xs-12
+    %table.table.table-hover
+      %tbody
+        - @barrels.each do |barrel|
+          %tr.active
+            %th= Barrel.human_attribute_name(:location)
+            %td= barrel.location
+          %tr
+            %th= Barrel.human_attribute_name(:date_of_manufacture)
+            %td= barrel.date_of_manufacture
+          %tr
+            %th= Barrel.human_attribute_name(:amount)
+            %td= barrel.amount
+          %tr
+            %th= Barrel.human_attribute_name(:is_empty)
+            %td= barrel.is_empty
+          %tr
+            %th= Barrel.human_attribute_name(:date_of_filling)
+            %td= barrel.date_of_filling
+          %tr
+            %th= Barrel.human_attribute_name(:varietywine)
+            %td= barrel.varietywine.name
+          %tr
+
+
+            %td
+              = link_to barrel, class: 'btn btn-warning' do
+                = fa_icon :eye
+                = t('buttons.show')
+              = link_to edit_barrel_path(barrel), class: 'btn btn-info' do
+                = fa_icon :edit
+                = t('buttons.edit')
+              = link_to barrel, :method => :delete,
+              :data => { :confirm => t('buttons.confirm.barrel') },
+              class: 'btn btn-danger' do
+                = fa_icon :times
+                = t('buttons.destroy')
+            %td

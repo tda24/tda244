@@ -1,0 +1,121 @@
+ru:
+  app:
+    name: Базовое приложение
+    company:
+      short_name: МПУ
+      department: Кафедра
+    barrels:
+      new: Добавление бочки
+      edit: Обновление бочки
+      header_index: Бочки
+      header_show: Бочка
+    varietywines:
+      new: Добавление сорта
+      edit: Обновление данных сорта 
+      header_index: Сорта
+      header_show: Сорт
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+  buttons:
+    edit: Редактировать
+    destroy: Удалить
+    show: Показать
+    confirm:
+      user: Действительно удалить пользователя?
+      role: Действительно удалить роль?
+      barrel: Действительно удалить бочку?
+      varietywine: Действительно удалить сорт вина?
+    new: 
+      user: Новый пользователь
+      role: Новая роль
+      barrel: Новая бочка
+      varietywine: Новый сорт вина
+  headers:
+    users:
+      edit: Редактирование пользователя
+      new: Новый пользователь
+      index: Список пользователей
+    barrels:
+      new: "Создание бочки"
+      edit: "Обновление бочки"
+      index: "Список бочек"
+    varietywines:
+      new: Создание сорта
+      edit: Обновление сортов
+      index: Список сортов вина
+    roles:
+      index: Список возможных ролей пользователей
+      edit: Редактирование роли
+      new: Новая роль
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      user: Пользователь
+    attributes:
+      user:
+        email: Пользовательское имя/электронная почта
+        birthday: Дата рождения
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        reset_password_email_sent_at: Дата отправления письма для смены пароля
+        activation_state: Статус активации
+        activation_token_expires_at: Дата прекращения действия токена активации
+        last_login_at: Время последнего входа в систему
+        role_users: Роли
+      varietywine:
+        name: Название вина
+        type_of_wine: Тип
+        color: Цвет
+        aging_in_barrels: Время выдержки в бочках
+        aging_in_bottles: Время выдержки в бутылках
+        name: Название 
+        place_of_production: Местоположение
+        date_of_collection: Дата изготовления
+      barrel:
+        location: Местоположение
+        date_of_manufacture: Дата производства
+        amount: Объём
+        is_empty: Количество вина
+        date_of_filling: Дата заполнения
+        varietywine: Сорт вина
+        varietywine_id: Сорт вина
+      grapesort:  &grapesorts
+        name: Название 
+        place_of_production: Местоположение
+        date_of_collection: Дата изготовления
+      relationship: &relationships
+        grapesort_id: Сорт винограда
+        grapesort: Сорт винограда
+        ratio: Соотношение
+        name: Название 
+        place_of_production: Местоположение
+        date_of_collection: Дата изготовления
+      role:
+        name: Обозначение
+        info: Краткое название
+        full_info: Описание
+      varietywine/relationships/grapesort:
+        <<: *grapesorts
+      varietywine/relationships:
+        <<: *relationships
+
+      # nested_start
+      role_user: &role_users
+      # nested_finish
+        role: Роль
+        role_id: Роль
+        data: Параметры
+      # nested_start
+      user/role_users:
+        <<: *role_users
+      # nested_finish
+          

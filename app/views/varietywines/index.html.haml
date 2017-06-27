@@ -1,0 +1,49 @@
+=breadcrumb_tag do
+  %li.active
+    Сорта вин
+  %li
+    Сорт вина
+
+.page-header
+  %h1= t('headers.varietywines.index')
+
+= link_to new_varietywine_path, class: 'btn btn-success' do
+  = fa_icon :plus
+  = t('buttons.new.varietywine')
+
+.row
+  .col-xs-12
+    %table.table.table-hover
+      %tbody
+        - @varietywines.each do |varietywine|
+          %tr.active
+            %th= Varietywine.human_attribute_name(:name)
+            %td= varietywine.name
+          %tr
+            %th= Varietywine.human_attribute_name(:type_of_wine)
+            %td= varietywine.type_of_wine
+          %tr
+            %th= Varietywine.human_attribute_name(:color)
+            %td= varietywine.color
+          %tr
+            %th= Varietywine.human_attribute_name(:aging_in_barrels)
+            %td= varietywine.aging_in_barrels
+          %tr
+            %th= Varietywine.human_attribute_name(:aging_in_bottles)
+            %td= varietywine.aging_in_bottles
+          %tr
+
+            %td
+              = link_to varietywine, class: 'btn btn-warning' do
+                = fa_icon :eye
+                = t('buttons.show')
+              = link_to edit_varietywine_path(varietywine), class: 'btn btn-info' do
+                = fa_icon :edit
+                = t('buttons.edit')
+              = link_to varietywine, :method => :delete,
+              :data => { :confirm => t('buttons.confirm.varietywine') },
+              class: 'btn btn-danger' do
+                = fa_icon :times
+                = t('buttons.destroy')
+            %td
+

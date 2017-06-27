@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @grapesort.name
+%p
+  %b Place of production:
+  = @grapesort.place_of_production
+%p
+  %b Date of collection:
+  = @grapesort.date_of_collection
+
+= link_to 'Edit', edit_grapesort_path(@grapesort)
+\|
+= link_to 'Back', grapesorts_path

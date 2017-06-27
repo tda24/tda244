@@ -1,0 +1,2 @@
+module VarietywinesHelper
+end

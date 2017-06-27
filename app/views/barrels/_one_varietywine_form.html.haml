@@ -1,0 +1,33 @@
+.row
+  .col-md-6
+    .form-group
+      = fr.label :name
+      = fr.text_area :name, class: 'form-control', rows: 1
+      = fr.error_messages_for(:name)
+.row
+  .col-md-6
+    .form-group
+      = fr.label :type_of_wine
+      = fr.text_area :type_of_wine, class: 'form-control', rows: 1
+      = fr.error_messages_for(:type_of_wine)
+.row
+  .col-md-6
+    .form-group
+      = fr.label :color
+      = fr.text_area :color, class: 'form-control', rows: 1
+      = fr.error_messages_for(:color)
+.row
+  .col-md-6
+    .form-group
+      = fr.label :aging_in_barrels
+      = fr.text_area :aging_in_barrels, class: 'form-control', rows: 1
+      = fr.error_messages_for(:aging_in_barrels)
+.row
+  .col-md-6
+    .form-group
+      = fr.label :aging_in_bottles
+      = fr.text_area :aging_in_bottles, class: 'form-control', rows: 1
+      = fr.error_messages_for(:aging_in_bottles)
+
+  .actions.margin-small-top
+    = fr.submit nil, class: 'btn btn-primary'

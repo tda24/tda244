@@ -1,0 +1,19 @@
+= form_for @grapesort do |f|
+  - if @grapesort.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@grapesort.errors.count, "error")} prohibited this grapesort from being saved:"
+      %ul
+        - @grapesort.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :place_of_production
+    = f.text_field :place_of_production
+  .field
+    = f.label :date_of_collection
+    = f.date_select :date_of_collection
+  .actions
+    = f.submit 'Save'

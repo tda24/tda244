@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type_of_wine: MyString
+  color: MyString
+  aging_in_barrels: 1
+  aging_in_bottles: MyString
+
+two:
+  name: MyString
+  type_of_wine: MyString
+  color: MyString
+  aging_in_barrels: 1
+  aging_in_bottles: MyString

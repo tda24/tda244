@@ -1,0 +1,26 @@
+=breadcrumb_tag do
+  %li.active
+    = @varietywine.name
+  %li
+    = link_to 'Сорта вин', varietywine_path
+  %li
+    Сорта вина
+
+%h1= @varietywine.name
+
+%dl
+  %dt= Varietywine.human_attribute_name(:name)
+  %dd= @varietywine.name
+
+  %dt= Varietywine.human_attribute_name(:type_of_wine)
+  %dd= @varietywine.type_of_wine
+
+  %dt= Varietywine.human_attribute_name(:color)
+  %dd= @varietywine.color
+
+  %dt= Varietywine.human_attribute_name(:aging_in_barrels)
+  %dd= @varietywine.aging_in_barrels
+
+  %dt= Varietywine.human_attribute_name(:aging_in_bottles)
+  %dd= @varietywine.aging_in_bottles
+

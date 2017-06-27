@@ -1,0 +1,28 @@
+=breadcrumb_tag do
+  %li.active
+    = @barrel.location
+  %li
+    = link_to 'Бочки с винами', barrel_path
+  %li
+    Бочка
+
+%h1= @barrel.location
+
+%dl
+  %dt= Barrel.human_attribute_name(:location)
+  %dd= @barrel.location
+
+  %dt= Barrel.human_attribute_name(:date_of_manufacture)
+  %dd= @barrel.date_of_manufacture
+
+  %dt= Barrel.human_attribute_name(:amount)
+  %dd= @barrel.amount
+
+  %dt= Barrel.human_attribute_name(:is_empty)
+  %dd= @barrel.is_empty
+
+  %dt= Barrel.human_attribute_name(:date_of_filling)
+  %dd= @barrel.date_of_filling
+
+  %dt= Barrel.human_attribute_name(:varietywine)
+  %dd= @barrel.varietywine.name

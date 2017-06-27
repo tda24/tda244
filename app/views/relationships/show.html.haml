@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Ratio:
+  = @relationship.ratio
+%p
+  %b Grapesort:
+  = @relationship.grapesort
+%p
+  %b Varietywine:
+  = @relationship.varietywine
+
+= link_to 'Edit', edit_relationship_path(@relationship)
+\|
+= link_to 'Back', relationships_path

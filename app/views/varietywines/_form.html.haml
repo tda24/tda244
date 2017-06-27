@@ -1,0 +1,43 @@
+= form_for @varietywine do |f|
+  = error_messages_for @varietywine
+  .row
+    .col-md-6
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control'
+        = f.error_messages_for(:name)
+      .col-md-14
+        .form-group
+          = f.label :type_of_wine
+          = f.select :type_of_wine,
+          ["Сухое","Полусухое","Полусладкое","Сладкое","Ликёрное"],{include_blank: true}, {class: 'form-control'}
+          = f.error_messages_for(:type_of_wine)
+
+    .col-md-6
+      .form-group
+        = f.label :color
+        = f.text_area :color, class: 'form-control', rows: 1
+        = f.error_messages_for(:color)
+    .col-md-6
+      .form-group
+        = f.label :aging_in_barrels
+        = f.text_area :aging_in_barrels, class: 'form-control', rows: 1
+        = f.error_messages_for(:aging_in_barrels)
+
+    .col-md-6
+      .form-group
+        = f.label :aging_in_bottles
+        = f.text_area :aging_in_bottles, class: 'form-control', rows: 1
+        = f.error_messages_for(:aging_in_bottles)
+
+
+  .row.bottom20
+    .col-md-12
+      = f.submit 'Сохранить', class: 'btn btn-primary', id: 'save'
+      = link_to_add_grapesort(f, f.object)
+      = link_to 'Назад', varietywines_path, class: 'btn btn-primary'
+  - i = 0
+  = f.fields_for(:relationships) do |pf|
+    = pf.hidden_field(:id)
+    - i += 1
+    = render('varietywines/relationships_varietywine_form', pf: pf, i: i)

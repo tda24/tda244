@@ -1,0 +1,25 @@
+%h1 Listing relationships
+
+%table
+  %thead
+    %tr
+      %th Ratio
+      %th Grapesort
+      %th Varietywine
+      %th
+      %th
+      %th
+
+  %tbody
+    - @relationships.each do |relationship|
+      %tr
+        %td= relationship.ratio
+        %td= relationship.grapesort
+        %td= relationship.varietywine
+        %td= link_to 'Show', relationship
+        %td= link_to 'Edit', edit_relationship_path(relationship)
+        %td= link_to 'Destroy', relationship, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Relationship', new_relationship_path
